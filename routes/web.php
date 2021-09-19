@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\Auth\UserController;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -27,12 +29,8 @@ Route::get('/portfolio', function () {
     return view('portfolio');
 });
 
-Route::get('/register', function () {
-    return view('inc.register');
-});
+Route::any('/register', [UserController::class, 'register'])->name('register');
+Route::any('/login', [UserController::class, 'login'])->name('login');
 
-Route::get('/auth', function () {
-    return view('inc.auth');
-});
-
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 

@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::post('users', function (Request $obRequest) {
+    if ($obRequest->post('login') === null) {
+        return json_encode(\App\User::all()->toArray());
+    }
+    return json_encode(\App\User::where(['login' => $obRequest->post('login')])->first());
 });

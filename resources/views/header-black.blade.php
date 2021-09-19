@@ -9,7 +9,7 @@
         <section class="inv-20px"></section>
         <a href="register.php" class="button"><section class="button-grey">наша</section>&nbspрегистрация</a>
         <section class="inv-20px"></section>
-        <a href="login.php" class="button"><section class="button-grey">наша</section>&nbspавторизация</a>
+        <a href="/login" class="button"><section class="button-grey">наша</section>&nbspавторизация</a>
     </div>
 </div>
 <div class="navigation">

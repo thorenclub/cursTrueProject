@@ -6,9 +6,14 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @method static where(array $array)
+ */
 class User extends Authenticatable
 {
+//    protected $table = 'user';
     use Notifiable;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +21,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'login', 'name', 'surname', 'thirdname', 'email', 'password', 'phone',
+        'id_role'
+    ];
+    public static $rules = [
+        'login' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string'],
+    ];
+    public static $messages = [
+        'required' => 'Вам необходимо запонить поле :attribute',
+        'string' => 'Поле :attribute должно быть строкой'
+    ];
+    public static $ruLabels = [
+        'login' => 'Логин',
+        'email' => 'Почта',
+        'password' => 'Пароль',
     ];
 
     /**
