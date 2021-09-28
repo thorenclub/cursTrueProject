@@ -1,17 +1,10 @@
-@extends('headers.white')
+@extends('core.content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
+@section('title', 'Create Account')
 
-<div class="all-screen">
-    @section('header')
+    @section('content')
         <div class="content-board">
-            <h1 class="h1-2">регистрация</h1>
+            <h2 class="h2_tall_black">Регистрация</h1>
             <form action="{{route('register')}}" method="post">
                 @csrf
                 <div class="input-div">
@@ -52,11 +45,10 @@
                     <input type="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" class="input-default"
                            placeholder="Введите ваш E-mail..." name="email" id="email" required="required">
                 </div>
-                <button class="button-white">зарегистрироваться</button>
+                <button class="button_black">зарегистрироваться</button>
             </form>
         </div>
 </div>
 
-</div>
 </div>
 @endsection

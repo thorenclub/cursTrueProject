@@ -45,7 +45,7 @@ class UserController extends Controller
     public function register(Request $obRequest, User $obUser)
     {
         if ($obRequest->getMethod() === 'GET') {
-            return view('inc.register');
+            return view('register');
         }
         if (($obValidated = $this->validator($obRequest->post(), User::$rules, User::$messages, User::$ruLabels))->fails()) {
 
@@ -67,7 +67,7 @@ class UserController extends Controller
     public function login(Request $obRequest)
     {
         if ($obRequest->getMethod() === 'GET') {
-            return view('inc.auth');
+            return view('auth');
         }
         if ($res = Auth::attempt($obRequest->only(['login', 'password']))) {
             return redirect('/');

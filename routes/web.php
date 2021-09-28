@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/employees', function () {
-    return view('employees');
+Route::get('/developers', function () {
+    return view('developers');
 });
 
 Route::get('/contacts', function () {
@@ -28,6 +28,19 @@ Route::get('/contacts', function () {
 Route::get('/portfolio', function () {
     return view('portfolio');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/deleteProject', function () {
+    return view('deleteProject');
+});
+
+Route::get('/project', function () {
+    return view('project');
+});
+
 
 Route::any('/register', [UserController::class, 'register'])->name('register');
 Route::any('/login', [UserController::class, 'login'])->name('login');

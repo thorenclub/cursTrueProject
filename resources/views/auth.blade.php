@@ -1,12 +1,10 @@
-@extends('headers.white')
+@extends('core.content')
 
-<head><title>Главная</title></head>
+@section('title', 'Sign In')
 
-<div class="all-screen">
-    @section('header')
+    @section('content')
         <div class="content-board">
-
-            <h1 class="h1-2">авторизация</h1>
+            <h2 class="h2_tall_black">Авторизация</h1>
             <form action="{{route('login')}}" method="post">
                 @csrf
                 <div class="input-div">
@@ -19,11 +17,10 @@
                     <input type="password" class="input-default" placeholder="Введите ваш пароль..." name="password"
                            id="pass" required="required">
                 </div>
-                <button class="button-white">войти</button>
+                <button class="button_black">войти</button>
             </form>
         </div>
 </div>
 
-</div>
 </div>
 @endsection
