@@ -11,9 +11,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
-//    protected $table = 'user';
     use Notifiable;
     public $timestamps = false;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -25,13 +25,14 @@ class User extends Authenticatable
         'id_role'
     ];
     public static $rules = [
-        'login' => ['required', 'string', 'max:255'],
+        'login' => ['required', 'string', 'max:255', 'unique:users'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string'],
     ];
     public static $messages = [
         'required' => 'Вам необходимо запонить поле :attribute',
-        'string' => 'Поле :attribute должно быть строкой'
+        'string' => 'Поле :attribute должно быть строкой',
+        'unique' => 'Поле :attribute должно быть уникальным',
     ];
     public static $ruLabels = [
         'login' => 'Логин',

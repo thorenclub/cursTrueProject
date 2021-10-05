@@ -12,6 +12,8 @@
 */
 
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,13 +27,21 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 Route::get('/portfolio', function () {
     return view('portfolio');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/admin-profiles', function () {
+    return view('profiles');
 });
+
+//Route::get('/profile', function () {
+//    return view('profile');
+//});
 
 Route::get('/deleteProject', function () {
     return view('deleteProject');
@@ -40,6 +50,10 @@ Route::get('/deleteProject', function () {
 Route::get('/project', function () {
     return view('project');
 });
+
+Route::any('/create-project', [ProjectController::class, 'create'])->name('create-project');
+
+Route::get('/profile', [ProfileController::class, 'view'])->name('profile-view');
 
 
 Route::any('/register', [UserController::class, 'register'])->name('register');

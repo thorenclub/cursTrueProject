@@ -3,7 +3,7 @@
 @section('title', 'Name of project')
 @section('content')
         <div class="content-board">
-            <h2 class="h2_tall_black" style="width: 80vw;">Дизайн кофейни "Albert Coffee"</h1>
+            <h1 class="h2_tall_black" style="width: 80vw;">Дизайн кофейни "Albert Coffee"</h1>
             <div class="vertical_gap">
                 <p class="p_black">Пользователь:</p>
                 <h3 class="h3_black">Зяблов Глеб Евгеньевич</h3>

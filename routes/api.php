@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 
 /*
@@ -23,3 +24,7 @@ Route::post('users', function (Request $obRequest) {
     }
     return json_encode(\App\User::where(['login' => $obRequest->post('login')])->first());
 });
+
+Route::post('login', [ApiController::class, 'login']);
+Route::post('create-project',    [ApiController::class, 'createProject']);
+Route::post('regenerate-token', [ApiController::class, 'regenerateToken']);
